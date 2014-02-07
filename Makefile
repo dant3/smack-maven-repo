@@ -38,11 +38,7 @@ deploy:
 	@# REPO - url of repository to deploy to
 	@# REPO_ID - id of repository to deploy to
 	@# usage: make REPO="repo" REPO_ID="repoid" deploy
-	ifndef REPO
-	ifndef REPO_ID
-	$(error Usage: make REPO="repo" REPO_ID="repoid" deploy)
-	endif
-	endif
+	@# 
 	@mvn deploy:deploy-file -DpomFile=smack.pom.xml -Dfile=smack/target/smack.jar -Dsources=smack/target/smack-source.jar -Durl=${REPO} -DcreateChecksum=true  -DrepositoryId=${REPO_ID}
 	@mvn deploy:deploy-file -DpomFile=smackx.pom.xml -Dfile=smack/target/smackx.jar -Dsources=smack/target/smackx-source.jar -Durl=${REPO} -DcreateChecksum=true  -DrepositoryId=${REPO_ID}
 	@mvn deploy:deploy-file -DpomFile=smackx-jingle.pom.xml -Dfile=smack/target/smackx-jingle.jar -Dsources=smack/target/smackx-jingle-source.jar -Durl=${REPO} -DcreateChecksum=true  -DrepositoryId=${REPO_ID}
